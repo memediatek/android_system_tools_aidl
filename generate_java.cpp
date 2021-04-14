@@ -248,6 +248,9 @@ std::vector<std::string> generate_java_annotations(const AidlAnnotatable& a) {
   if (a.IsSystemApi()) {
     result.emplace_back("@android.annotation.SystemApi");
   }
+  if (a.IsProductApi()) {
+    result.emplace_back("@android.annotation.ProductApi");
+  }
   return result;
 }
 

@@ -78,10 +78,11 @@ static const string kNullable("nullable");
 static const string kUtf8InCpp("utf8InCpp");
 static const string kUnsupportedAppUsage("UnsupportedAppUsage");
 static const string kSystemApi("SystemApi");
+static const string kProductApi("ProductApi");
 static const string kStableParcelable("JavaOnlyStableParcelable");
 
 static const set<string> kAnnotationNames{kNullable, kUtf8InCpp, kUnsupportedAppUsage, kSystemApi,
-                                          kStableParcelable};
+                                          kProductApi, kStableParcelable};
 
 AidlAnnotation* AidlAnnotation::Parse(const AidlLocation& location, const string& name) {
   if (kAnnotationNames.find(name) == kAnnotationNames.end()) {
@@ -126,6 +127,10 @@ bool AidlAnnotatable::IsUnsupportedAppUsage() const {
 
 bool AidlAnnotatable::IsSystemApi() const {
   return HasAnnotation(annotations_, kSystemApi);
+}
+
+bool AidlAnnotatable::IsProductApi() const {
+  return HasAnnotation(annotations_, kProductApi);
 }
 
 bool AidlAnnotatable::IsStableParcelable() const {

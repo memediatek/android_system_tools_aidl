@@ -173,6 +173,7 @@ class AidlAnnotatable : public AidlNode {
   bool IsUtf8InCpp() const;
   bool IsUnsupportedAppUsage() const;
   bool IsSystemApi() const;
+  bool IsProductApi() const;
   bool IsStableParcelable() const;
   std::string ToString() const;
 
